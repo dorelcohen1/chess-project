@@ -1,6 +1,7 @@
 // filepath: chess-project/code/class_chess_p.cpp
 
 #include "class_chess_p.hpp"
+#include <iostream>
 
 // Constructor
 chess_p(std::string loc, bool is_it_white) 

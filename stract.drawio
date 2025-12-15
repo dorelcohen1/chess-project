@@ -1,0 +1,56 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/25.0.2 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" version="25.0.2">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="780" dy="544" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="m0MlI2jncYq5X-M7VOnX-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="m0MlI2jncYq5X-M7VOnX-0" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="m0MlI2jncYq5X-M7VOnX-0" value="start the code" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="320" y="120" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="4DQ25UPqlYt-2u8fjI_E-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="4DQ25UPqlYt-2u8fjI_E-0" target="4DQ25UPqlYt-2u8fjI_E-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4DQ25UPqlYt-2u8fjI_E-0" value="make the falowing classes:&lt;br&gt;&lt;br&gt;chess_peace (baisic parts like location and from it we will make a class for eche peace)&lt;div&gt;&lt;br&gt;the Q will get from the R and B and so on if they have simlar moves&lt;br&gt;&lt;br&gt;bord (here we will have all the fichers of a bord including testing of if thr move is right or wrong)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="320" y="180" width="120" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="4DQ25UPqlYt-2u8fjI_E-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="4DQ25UPqlYt-2u8fjI_E-2" target="4DQ25UPqlYt-2u8fjI_E-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4DQ25UPqlYt-2u8fjI_E-2" value="we set enum for the falowing:&lt;br&gt;&lt;br&gt;&lt;div&gt;result&lt;br&gt;move&lt;br&gt;&lt;br&gt;and we make the falowing new verubels:&lt;br&gt;&lt;br&gt;bool end - to see if we need to exit the loop&lt;br&gt;result&lt;br&gt;move - to escape an iner loop of moves before giveng the turn to the other side&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="320" y="500" width="120" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="4DQ25UPqlYt-2u8fjI_E-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="4DQ25UPqlYt-2u8fjI_E-4" target="4DQ25UPqlYt-2u8fjI_E-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="4DQ25UPqlYt-2u8fjI_E-4" value="is !end true then run the falowing" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="300" y="820" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4DQ25UPqlYt-2u8fjI_E-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="4DQ25UPqlYt-2u8fjI_E-7" target="4DQ25UPqlYt-2u8fjI_E-4" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="180" y="840" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="181" y="1060" />
+              <mxPoint x="181" y="838" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4DQ25UPqlYt-2u8fjI_E-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="4DQ25UPqlYt-2u8fjI_E-7" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="1280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4DQ25UPqlYt-2u8fjI_E-7" value="call bord.make_a_move&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;it will get user input from the frontend or in testing from the consule and then see if it is legal and if it is do it if not it will return an error code we will have an if statment that if we got an iligel code we will keep looping hrere if it works we will swap sides&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="320" y="920" width="120" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="4DQ25UPqlYt-2u8fjI_E-14" value="if we get that the game is over end the code" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="260" y="1280" width="260" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
