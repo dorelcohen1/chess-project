@@ -203,20 +203,4 @@ MoveResult rook::is_move_ok(std::string state_of_board)
     }
 }
 
-/*^   * fanction name:        rook::is_there_check
----------------------------------------------------------------------------------------
-    * fanction description: Checks if the current player's king is in check based on the state of the chess board.
-    * fanction input:       std::string state_of_board, char turn
-        - state_of_board:   The current state of the chess board.
-        - turn:             Indicates whose turn it is ('0' for white, '1' for black).
-    * fanction output:      bool
-    * return value:         True if the king is in check, false otherwise.
-    * eficency:             O(n) - linear time complexity, where n is the number of squares on the board.
----------------------------------------------------------------------------------------
-*/
-bool rook::is_there_check(std::string state_of_board, char turn)
-{
-    // TODO : Implement check detection logic for the rook
-    return false; // Placeholder return value
-}
 
