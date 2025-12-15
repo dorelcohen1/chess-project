@@ -29,3 +29,12 @@ void chess_p::set_die()
 {
 	is_alive = false;
 }
+
+void chess_p::move()
+{
+	location = destination;
+}
+std::string chess_p::give_location()
+{
+    return location;
+}
