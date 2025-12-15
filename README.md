@@ -1,8 +1,8 @@
 # chess-project
 a chess project with a back end in cpp and front end in c# 
 
-# made by:
+# made by:  
+Dorel Cohen  
+Benaya Melamed Cohen  
 
-Dorel Cohen
-and
-Benaya Melamed Cohen
+![A screenshot of the project](./assets/screenshot.png)
