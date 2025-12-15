@@ -17,17 +17,13 @@ private:
 
 public:
     // Public methods
-
     // -- Constructor --//
-
-    // --- Getters --- //
-
-    // --- Setters --- //
+    
+    rook(std::string start_loc, bool is_it_white);
 
     // --- Other Methods --- //
 
-    // --- Virtual Methods --- //
-
+    bool is_move_ok(std::string state_of_board ) override; // state_of_board: current state of the chess board
 };
 
 
