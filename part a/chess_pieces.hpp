@@ -51,6 +51,26 @@ public:
 };
 
 /*
+// Class definition for pawn chess piece
+// ------------------------------------------
+// This class inherits from the base chess_p class
+// It contains specific attributes and methods for the pawn piece
+*/  
+class pawn : public chess_p
+{
+private:
+    // Private member variables
+public:
+    // Public methods
+    // -- Constructor --//
+    pawn(std::string start_loc, bool is_it_white);
+
+    // --- Override Methods --- //
+
+    MoveResult is_move_ok(std::string state_of_board ) override;
+};
+
+/*
 // Class definition for knight chess piece
 // ------------------------------------------
 // This class inherits from the base chess_p class
@@ -106,26 +126,6 @@ public:
     // Public methods
     // -- Constructor --//
     bishop(std::string start_loc, bool is_it_white);
-
-    // --- Override Methods --- //
-
-    MoveResult is_move_ok(std::string state_of_board ) override;
-};
-
-/*
-// Class definition for pawn chess piece
-// ------------------------------------------
-// This class inherits from the base chess_p class
-// It contains specific attributes and methods for the pawn piece
-*/  
-class pawn : public chess_p
-{
-private:
-    // Private member variables
-public:
-    // Public methods
-    // -- Constructor --//
-    pawn(std::string start_loc, bool is_it_white);
 
     // --- Override Methods --- //
 
