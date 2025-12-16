@@ -48,8 +48,13 @@ public:
     MoveResult is_move_ok(std::string state_of_board ) override; // state_of_board: current state of the chess board
 };
 
-
-class knigh : public chess_p   
+/*
+// Class definition for knight chess piece
+// ------------------------------------------
+// This class inherits from the base chess_p class
+// It contains specific attributes and methods for the knight piece
+*/
+class knight : public chess_p   
 {    
 private:
     // Private member variables
@@ -57,7 +62,7 @@ private:
 public:     
 	// Public methods
     // -- Constructor --//
-	knigh(std::string start_loc, bool is_it_white);    
+	knight(std::string start_loc, bool is_it_white);    
 
     // --- Override Methods --- //
 
