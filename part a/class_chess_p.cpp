@@ -141,9 +141,11 @@ std::string chess_p::get_destination()
 */
 bool chess_p::is_there_check(std::string state_of_board, char turn)
 {
+	// !just shit to avoid gcc warnings
+	state_of_board[BOARD_STATE_LENGTH - 1] = turn; // set the turn in the state_of_board string
+	turn = (turn == WHITE_TURN) ? '1' : '0'; // switch turn for opponent
     // TODO : Implement check detection logic for the rook
     return false; // Placeholder return value
 }
-
 
  
