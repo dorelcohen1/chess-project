@@ -14,8 +14,7 @@ enum MoveResult
     Invalid_IllegalMovement = 6,
     Invalid_SameSourceAndDestination = 7,
     Valid_Checkmate = 8
-} 
-moveResult;
+} moveResult;
 
 constexpr int BOARD_SIZE = 64;                           // Total number of squares on the chess board
 constexpr int BOARD_STATE_LENGTH = 65;                   // Board state string length (64 squares + 1 turn indicator)
