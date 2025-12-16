@@ -28,7 +28,7 @@ private:
 	// !will hold the turn information in frontend format its important and carries all the needed info about the turn and is sent to pieces as state_of_board 
 	std::string turn_info_frontend_format; // holds the turn information in frontend format
 
-public:
+public: 
 	// Public methods
 	//---------------//
 
