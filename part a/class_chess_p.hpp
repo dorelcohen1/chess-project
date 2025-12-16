@@ -64,7 +64,7 @@ public:
 
     void move(); // updates location to destination if move is valid
     std::string give_location(); // returns current location of the piece
-    bool chess_p::is_there_check(std::string state_of_board, char turn);
+    bool is_there_check(std::string state_of_board, char turn);
 
 
     // --- Virtual Methods --- //
