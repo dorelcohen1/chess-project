@@ -165,6 +165,8 @@ MoveResult rook::is_move_ok(std::string state_of_board)
     new_state_of_board = state_of_board;
     new_state_of_board[dest_index] = new_state_of_board[source_index]; // Move piece to destination
     new_state_of_board[source_index] = EMPTY_SQUARE;                   // Empty the source square
+    new_state_of_board[BOARD_STATE_LENGTH - 1] = turn + 1;             // Empty the source square
+
     // Check if the move puts the opponent in check
     if (is_there_check(new_state_of_board))
     {
@@ -300,19 +302,19 @@ bool is_there_check(std::string state_of_board)
 						temp_piece = new rook(piece_location, !piece_is_white);
 						break;
 					case 'n':
-						//TODO temp_piece = new knight(piece_location, !piece_is_white);
+						temp_piece = new knight(piece_location, !piece_is_white);
 						break;
 					case 'b':
-						//TODO temp_piece = new bishop(piece_location, !piece_is_white);
+						temp_piece = new bishop(piece_location, !piece_is_white);
 						break;
 					case 'q':
-						//TODO temp_piece = new queen(piece_location, !piece_is_white);
+						temp_piece = new queen(piece_location, !piece_is_white);
 						break;
 					case 'k':
-						//TODO temp_piece = new king(piece_location, !piece_is_white);
+						temp_piece = new king(piece_location, !piece_is_white);
 						break;
 					case 'p':
-						//TODO temp_piece = new pawn(piece_location, !piece_is_white);
+						temp_piece = new pawn(piece_location, !piece_is_white);
 						break;
 				}
 
@@ -354,9 +356,152 @@ bool is_there_check(std::string state_of_board)
 */
 MoveResult king::is_move_ok(std::string state_of_board )
 {
+    /*
+    Valid = 0,
+    Valid_Check = 1,
+    Invalid_NoPieceAtSource = 2,
+    Invalid_DestinationOccupiedByOwnPiece = 3,
+    Invalid_SelfCheck = 4,
+    Invalid_IndexOutOfRange = 5,
+    Invalid_IllegalMovement = 6,
+    Invalid_SameSourceAndDestination = 7,
+    Valid_Checkmate = 8
+    */
     MoveResult result = MoveResult::Invalid_IllegalMovement; // Default to invalid move
+    std::string loc = give_location();                       // Get the current location of the king
+    std::string dest = get_destination();                    // Get the destination location for the move
+    char turn = state_of_board[BOARD_STATE_LENGTH - 1];      // Extract whose turn it is from the board state
+    int source_index = 0;                                    // Index of the source square on the board
+    int dest_index = 0;                                      // Index of the destination square on the board
+    char king_char = '#';                                    // will have the type of king 
+    std::string new_state_of_board = "";                     // new state of the board to test for Check
+    bool king_exists = false;                                // Flag to check if opponent's king exists
+    char opponent_king = '\0';                               // Opponent's king character
+    int i = 0;                                               // loop number
 
+    // Determine opponent's king character
+    if (get_is_white())
+    {
+        opponent_king = 'K';
+    }
+    else
+    {
+        opponent_king = 'k';
+    }
+
+    // the king legal moves are one square in any direction
+    if ((abs(loc[FILE_OFFSET] - dest[FILE_OFFSET]) <= 1) && (abs(loc[RANK_OFFSET] - dest[RANK_OFFSET]) <= 1))
+    {
+        if ((turn == WHITE_TURN && get_is_white()) || (turn != WHITE_TURN && !get_is_white())) // Check if it's the correct player's turn
+        {
+            // now we know it's the turn of whoever owns this king and the move is within one square in any direction
+            if (loc != dest)// make sure source and destination are not the same
+            {
+                // now we need to see if the king is even there
+                source_index = (loc[RANK_OFFSET] - '1') * VERTICAL_STEP + (loc[FILE_OFFSET] - 'a');
+
+                if (state_of_board[source_index] == 'K' || state_of_board[source_index] == 'k')
+                {
+                    // now we need to see if the destination is occupied by own piece
+                    dest_index = (dest[RANK_OFFSET] - '1') * VERTICAL_STEP + (dest[FILE_OFFSET] - 'a');
+
+                    if (state_of_board[dest_index] != EMPTY_SQUARE)
+                    {
+                        char dest_piece = state_of_board[dest_index];
+                        bool dest_is_white = (dest_piece >= 'A' && dest_piece <= 'Z');
+                        if (dest_is_white == get_is_white())
+                        {
+                            result = MoveResult::Invalid_DestinationOccupiedByOwnPiece; // Destination occupied by own piece
+                        }
+                        else
+                        {
+                            result = MoveResult::Valid; // Valid move (capturing opponent's piece)
+                        }
+                    }
+                    else
+                    {
+                        result = MoveResult::Valid; // Valid move (to empty square)
+                    }
+                }
+                else
+                {
+                    result = MoveResult::Invalid_NoPieceAtSource; // No piece at source
+                }
+            }
+            else
+            {
+                result = MoveResult::Invalid_SameSourceAndDestination; // Same source and destination
+            }
+        }
+        else
+        {
+            result = MoveResult::Invalid_IllegalMovement; // Invalid move
+        }
+    }
+    else
+    {
+        result = MoveResult::Invalid_IllegalMovement; // Invalid move
+    }
     
+    // code number 5
+    // Check for index out of range
+    if (source_index < 0 || source_index >= BOARD_SIZE || dest_index < 0 || dest_index >= BOARD_SIZE)
+    {
+        return MoveResult::Invalid_IndexOutOfRange;
+    }
+
+    // code number 4
+    // check for self-check
+    // make a copy of how the board would look after the move
+    new_state_of_board = state_of_board;
+    new_state_of_board[dest_index] = new_state_of_board[source_index]; // Move piece to destination
+    new_state_of_board[source_index] = EMPTY_SQUARE;                   // Empty the source square
+    if (is_there_check(new_state_of_board))
+    {
+        result =  MoveResult::Invalid_SelfCheck;
+    }
+    // this makes sure that the move does not put own king in check or if it was already in check it makes sure the move gets the king out of check
+
+    new_state_of_board = state_of_board;
+    new_state_of_board[dest_index] = new_state_of_board[source_index]; // Move piece to destination
+    new_state_of_board[source_index] = EMPTY_SQUARE;                   // Empty the source square
+    if(result == MoveResult::Valid)
+    {
+        // If all checks passed, the move is valid
+        // now we need to check if the move results in a check or checkmate
+        // we can use the is_there_check function again
+        new_state_of_board = state_of_board;
+        new_state_of_board[dest_index] = new_state_of_board[source_index]; // Move piece to destination
+        new_state_of_board[source_index] = EMPTY_SQUARE;                   // Empty the source square
+        new_state_of_board[BOARD_STATE_LENGTH - 1] = turn + 1;             // change the turn
+
+        // Check if the move puts the opponent in check
+        if (is_there_check(new_state_of_board))
+        {
+            result = MoveResult::Valid_Check;
+        }
+
+        // Check if opponent's king is on the board
+        king_exists = false;
+        for (i = 0; i < BOARD_SIZE; i++)
+        {
+            if (new_state_of_board[i] == opponent_king)
+            {
+                king_exists = true;
+                break;
+            }
+        }
+
+        // If king doesn't exist, it's checkmate; otherwise, it's a valid move
+        if (!king_exists)
+        {
+            result = MoveResult::Valid_Checkmate;
+        }
+        else
+        {
+            result = MoveResult::Valid;
+        }
+    }
 
     return result; // return the appropriate MoveResult after implementing the logic
 }
