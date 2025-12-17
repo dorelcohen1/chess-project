@@ -2,7 +2,7 @@ name: C++ Build CI
 
 on:
   push:
-    branches: [ main ]  # Adjust to your default branch if needed
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 
@@ -16,11 +16,12 @@ jobs:
 
       - name: Compile
         run: |
-          mkdir -p build  # Create output directory if needed
+          mkdir -p build
+          cd part a  # <-- Go into the 'a' folder
           g++ -g -std=c++20 -Wall -Wextra \
-            $(find . -name "*.cpp" -type f) \
-            -o build/program
+            *.cpp \
+            -o ../build/program
 
-      # Optional: Run the executable to test (if it has no input requirements)
       - name: Test run
         run: ./build/program
+        
