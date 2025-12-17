@@ -12,9 +12,9 @@ board::board()
     state_of_board_as_string = STARTING_BOARD_STATE;
 
     // Initialize the chess_board array with nullptrs
-    for ( i = 0; i < BOARD_SIZE_UP; ++i)
+    for (i = 0; i < BOARD_SIZE_UP; ++i)
 	{
-		for ( j = 0; j < BOARD_SIZE_RIGHT; ++j)
+		for (j = 0; j < BOARD_SIZE_RIGHT; ++j)
 		{
 			chess_board[i][j] = nullptr; // Initialize all board positions to nullptr
 		}
@@ -66,9 +66,11 @@ board::board()
 // Destructor to clean up dynamically allocated pieces
 board::~board()
 {
-	for (int i = 0; i < BOARD_SIZE_UP; ++i)
+	int i = 0;
+	int j = 0;
+	for (i = 0; i < BOARD_SIZE_UP; ++i)
 	{
-		for (int j = 0; j < BOARD_SIZE_RIGHT; ++j)
+		for (j = 0; j < BOARD_SIZE_RIGHT; ++j)
 		{
 			delete chess_board[i][j]; // Delete each piece if it exists
 			chess_board[i][j] = nullptr; // Set pointer to nullptr after deletion
