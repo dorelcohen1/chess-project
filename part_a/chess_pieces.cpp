@@ -342,7 +342,7 @@ bool is_there_check(std::string state_of_board)
     // if we reach here the king is not in check
     return false;
 }
-
+ 
 /*
 ^   * fanction name:        king::is_move_ok
 --------------------------------------------------------------------------------------- 
