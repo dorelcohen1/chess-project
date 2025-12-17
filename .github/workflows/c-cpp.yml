@@ -17,7 +17,7 @@ jobs:
       - name: Compile
         run: |
           mkdir -p build
-          cd part a  # <-- Go into the 'a' folder
+          cd part_a  # <-- Go into the 'a' folder
           g++ -g -std=c++20 -Wall -Wextra \
             *.cpp \
             -o ../build/program
