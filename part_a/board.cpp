@@ -38,7 +38,6 @@ board::board()
 		chess_board[1][j] = new pawn(pos, true); // Black Pawns
 	}
 
-    i = 0;
     j = 0;
     file = '\0';
     pos = "";
