@@ -92,7 +92,56 @@ void test_pawn()
 }
 void test_king()
 {
+    // king
+    king test_king("a1", true);
 
+    if(test_king.give_location() == "a1" && test_king.get_is_alive() == true && test_king.get_is_white() == true)
+    {
+        std::cout << "king make tests passed." << std::endl;
+    }
+    else
+    {
+        std::cout << "king make tests failed." << std::endl;
+    }
+    test_king.set_destination("b1");
+    if(test_king.get_destination() == "b1")
+    {
+        std::cout << "king destination set correctly." << std::endl;
+    }
+    else
+    {
+        std::cout << "king destination not set correctly." << std::endl;
+    }
+    MoveResult result = test_king.is_move_ok("k###############################################################1");
+    if(result == MoveResult::Valid_Checkmate)
+    {
+        std::cout << "king move validation passed." << std::endl;
+    }
+    else
+    {
+        std::cout << "got: " << std::endl;
+        std::cout << result << std::endl;
+        std::cout << "king move validation failed." << std::endl;
+    }   
+    test_king.move();
+    if(test_king.give_location() == "b1")
+    {
+        std::cout << "king move executed correctly." << std::endl;
+    }
+    else
+    {
+        std::cout << "king move execution failed." << std::endl;
+    }
+    test_king.set_die();
+    if(test_king.get_is_alive() == false)
+    {
+        std::cout << "king set_die() test passed." << std::endl;
+    }
+    else
+    {
+        std::cout << "king set_die() test failed. \n\n\n" << std::endl;
+    }
+    // end of tests for king
 }
 
 
