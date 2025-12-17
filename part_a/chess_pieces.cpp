@@ -157,6 +157,7 @@ MoveResult rook::is_move_ok(std::string state_of_board, bool check_for_check)
     new_state_of_board = state_of_board;
     new_state_of_board[dest_index] = new_state_of_board[source_index]; // Move piece to destination
     new_state_of_board[source_index] = EMPTY_SQUARE;                   // Empty the source square
+    new_state_of_board[BOARD_STATE_LENGTH - 1] = (turn == WHITE_TURN ? BLACK_TURN : WHITE_TURN); // change the turn                    
     if (is_there_check(new_state_of_board))
     {
         return MoveResult::Invalid_SelfCheck;
@@ -169,8 +170,6 @@ MoveResult rook::is_move_ok(std::string state_of_board, bool check_for_check)
     new_state_of_board = state_of_board;
     new_state_of_board[dest_index] = new_state_of_board[source_index]; // Move piece to destination
     new_state_of_board[source_index] = EMPTY_SQUARE;                   // Empty the source square
-    new_state_of_board[BOARD_STATE_LENGTH - 1] = (turn == WHITE_TURN ? BLACK_TURN : WHITE_TURN); // change the turn                    
-
     // Check if the move puts the opponent in check
     if (is_there_check(new_state_of_board))
     {
