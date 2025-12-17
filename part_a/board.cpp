@@ -62,3 +62,17 @@ board::board()
 	}
 	// The rest of the board is already initialized to nullptr
 }
+
+// Destructor to clean up dynamically allocated pieces
+board::~board()
+{
+	for (int i = 0; i < BOARD_SIZE_UP; ++i)
+	{
+		for (int j = 0; j < BOARD_SIZE_RIGHT; ++j)
+		{
+			delete chess_board[i][j]; // Delete each piece if it exists
+			chess_board[i][j] = nullptr; // Set pointer to nullptr after deletion
+		}
+	}
+}
+
