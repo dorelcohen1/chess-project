@@ -7,7 +7,7 @@ void test_bishop();
 void test_queen();
 void test_pawn();
 void test_king();
-
+ 
 int main() 
 {
     std::cout << "Chess pieces module loaded successfully." << std::endl;
@@ -23,7 +23,7 @@ int main()
 
 void test_rook()
 {
-        // rook
+    // rook
     rook test_rook("a1", true);
 
     if(test_rook.give_location() == "a1" && test_rook.get_is_alive() == true && test_rook.get_is_white() == true)
