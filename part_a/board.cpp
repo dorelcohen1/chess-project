@@ -18,8 +18,6 @@ board::board()
         }
     }
 
-    // FIXED: Place WHITE pieces at rank 1 (row 0 in 2D array)
-    // Row index 0 corresponds to rank 1
     chess_board[0][0] = new rook("a1", true);    // White Rook (true = white)
     chess_board[0][1] = new knight("b1", true);  // White Knight
     chess_board[0][2] = new bishop("c1", true);  // White Bishop
@@ -39,7 +37,6 @@ board::board()
         chess_board[1][j] = new pawn(pos, true);  // White Pawns
     }
 
-    // FIXED: Place BLACK pieces at rank 8 (row 7 in 2D array)
     // Row index 7 corresponds to rank 8
     chess_board[7][0] = new rook("a8", false);   // Black Rook (false = black)
     chess_board[7][1] = new knight("b8", false); // Black Knight

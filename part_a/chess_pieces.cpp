@@ -304,8 +304,7 @@ bool is_there_check(std::string state_of_board)
             // FIXED: Look for OPPONENT pieces
             // If checking WHITE's king (current_turn==WHITE), look for BLACK pieces (!piece_is_white)
             // If checking BLACK's king (current_turn==BLACK), look for WHITE pieces (piece_is_white)
-            if ((current_turn == WHITE_TURN && !piece_is_white) || 
-                (current_turn == BLACK_TURN && piece_is_white))
+            if ((current_turn == WHITE_TURN && !piece_is_white) || (current_turn == BLACK_TURN && piece_is_white))
             {
                 temp_piece = nullptr;
                 piece_file = 'a' + (i % 8);
