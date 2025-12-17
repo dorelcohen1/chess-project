@@ -126,6 +126,31 @@ void test_king()
     {
         std::cout << "king move execution failed." << std::endl;
     }
+    test_king.set_destination("c1");
+    MoveResult result = test_king.is_move_ok("#k#######################################K######################1");
+    if(result == MoveResult::Valid)
+    {
+        std::cout << "king move validation 2 passed." << std::endl;
+    }
+    else
+    {
+        std::cout << "got: " << std::endl;
+        std::cout << result << std::endl;
+        std::cout << "king move validation 2 failed." << std::endl;
+    } 
+    test_king.set_destination("a1");
+    MoveResult result = test_king.is_move_ok("Kk##############################################################1");
+    if(result == MoveResult::Valid_Checkmate)
+    {
+        std::cout << "king move validation 3 passed." << std::endl;
+    }
+    else
+    {
+        std::cout << "got: " << std::endl;
+        std::cout << result << std::endl;
+        std::cout << "king move validation 3 failed." << std::endl;
+    }   
+
     // end of tests for king
 }
 
