@@ -21,6 +21,10 @@ int main()
     //king
     test_king();
 
+
+    //combo tests
+    test_rook_and_king();
+
     std::cin.get(); // this keeps the console window open until a key is pressed
     return 0;
 }
