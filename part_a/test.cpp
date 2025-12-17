@@ -11,7 +11,7 @@ void test_rook_and_king();
  
 int main() 
 {
-    std::cout << "Chess pieces module loaded successfully." << std::endl;
+    std::cout << "Chess pieces module loaded successfully.\n" << std::endl;
     
     // some tests:
 
@@ -202,7 +202,7 @@ void test_rook_and_king()
     }
     else 
     {
-        std::cout << "White rook a1 -> a8 didnt get  : MoveResult::Valid_Check it got:" << result;
+        std::cout << "White rook a1 -> a8 didnt get  : MoveResult::Valid_Check it got:  " << result <<"\n";
     }
 
     std::cout << "Board after move 1:\n" << board << std::endl;
@@ -211,7 +211,7 @@ void test_rook_and_king()
     b_king.set_destination("d8");
     result = b_king.is_move_ok(board);
 
-    std::cout << "Black king e8 -> d8 : ";
+    std::cout << "Black king e8 -> d8 : " <<"\n";
     std::cout << result << std::endl;
 
     if (result == MoveResult::Invalid_SelfCheck)
@@ -224,7 +224,7 @@ void test_rook_and_king()
     }    
     else 
     {
-        std::cout << "Black king e8 -> d8 didnt get: MoveResult::Invalid_SelfCheck it got:" << result;
+        std::cout << "Black king e8 -> d8 didnt get: MoveResult::Invalid_SelfCheck it got:  " << result <<"\n";;
     }
 
     std::cout << "Board after move 2:\n" << board << std::endl;
@@ -246,7 +246,7 @@ void test_rook_and_king()
     }
     else 
     {
-        std::cout << "Black king e8 -> d8 didnt get: MoveResult::Invalid_SelfCheck it got:" << result;
+        std::cout << "\n" << "Black king e8 -> d8 didnt get: MoveResult::Invalid_SelfCheck it got:" << result <<"\n";;
     }
 
     std::cout << "Board after move 3:\n" << board << std::endl;
@@ -272,7 +272,7 @@ void test_rook_and_king()
     else
     {
         std::cout << "Final move failed unexpectedly." << std::endl;
-        std::cout << "White rook a8 -> d8 didnt get: MoveResult::Valid_Checkmate it got:" << result;
+        std::cout << "White rook a8 -> d8 didnt get: MoveResult::Valid_Checkmate it got:" << result <<"\n";;
     }
     w_rook.move();
 
