@@ -342,6 +342,25 @@ bool is_there_check(std::string state_of_board)
 }
 
 /*
+^   * fanction name:        king::is_move_ok
+--------------------------------------------------------------------------------------- 
+    * fanction description: Determines if the proposed move for the King piece is valid based on the current state of the chess board.
+    * fanction input:       std::string state_of_board
+        - state_of_board:   The current state of the chess board.
+    * fanction output:      MoveResult
+    * return value:         An enumeration value indicating the result of the move validation.
+    * eficency:             O(n) - linear time complexity, where n is the number of squares checked for path clearance.
+---------------------------------------------------------------------------------------
+*/
+MoveResult king::is_move_ok(std::string state_of_board )
+{
+    // !just shit to avoid gcc warnings
+    state_of_board[0] = state_of_board[2];
+    // todo implement king movement validation
+    return MoveResult::Valid;
+}
+
+/*
 ^   * fanction name:        knight::knight
 ---------------------------------------------------------------------------------------
     * fanction description: Initializes a knight chess piece with its starting location and color.
@@ -475,23 +494,4 @@ MoveResult pawn::is_move_ok(std::string state_of_board)
     state_of_board[0] = state_of_board[2];
     // TODO: Implement pawn movement validation (forward moves, captures, en passant, promotion)
     return MoveResult::Valid;  // Stub for now
-}
-
-/*
-^   * fanction name:        king::is_move_ok
---------------------------------------------------------------------------------------- 
-    * fanction description: Determines if the proposed move for the King piece is valid based on the current state of the chess board.
-    * fanction input:       std::string state_of_board
-        - state_of_board:   The current state of the chess board.
-    * fanction output:      MoveResult
-    * return value:         An enumeration value indicating the result of the move validation.
-    * eficency:             O(n) - linear time complexity, where n is the number of squares checked for path clearance.
----------------------------------------------------------------------------------------
-*/
-MoveResult king::is_move_ok(std::string state_of_board )
-{
-    // !just shit to avoid gcc warnings
-    state_of_board[0] = state_of_board[2];
-    // todo implement king movement validation
-    return MoveResult::Valid;
 }
