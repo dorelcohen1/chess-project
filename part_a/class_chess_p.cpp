@@ -20,22 +20,6 @@ chess_p::chess_p(std::string loc, bool is_it_white)
 {
 	location = loc;
 	is_white = is_it_white;
-	is_alive = true;
-}
-
-/*
-^   * fanction name:        chess_p::get_is_alive
----------------------------------------------------------------------------------------
-    * fanction description: Returns the alive status of the chess piece.
-    * fanction input:       None
-    * fanction output:      bool
-    * return value:         True if the piece is alive, false otherwise.
-    * eficency:             O(1) - constant time complexity.
----------------------------------------------------------------------------------------
-*/
-bool chess_p::get_is_alive()
-{
-	return is_alive;
 }
 
 /*
@@ -67,21 +51,6 @@ bool chess_p::get_is_white()
 void chess_p::set_destination(std::string try_move)
 {
 	destination = try_move;
-}
-
-/*
-^   * fanction name:        chess_p::set_die
----------------------------------------------------------------------------------------
-	* fanction description: Marks the chess piece as dead by setting its alive status to false.
-	* fanction input:       None
-	* fanction output:      void
-	* return value:         None.
-	* eficency:             O(1) - constant time complexity.
----------------------------------------------------------------------------------------
-*/
-void chess_p::set_die()
-{
-	is_alive = false;
 }
 
 /*

@@ -41,7 +41,7 @@ public:
     // --- setters --- //
 
     // --- Other Methods --- //
-    bool kill(const std::string& position);
+    bool kill(chess_p* p_chess);
 
     // --- Virtual Methods --- //
 

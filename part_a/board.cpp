@@ -76,11 +76,12 @@ board::~board()
 	}
 }
 
-bool board::kill(const std::string& pos)
+bool board::kill(chess_p* p_chess)
 {
-	int col = pos[0] - 'a';
-	int row = pos[1] - '1';
+	std::string des = p_chess->get_destination();
 
+	int col = des[0] - 'a';
+	int row = des[1] - '1';
 
 	if (chess_board[row][col] != nullptr)
 	{

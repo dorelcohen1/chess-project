@@ -39,7 +39,6 @@ private:
     std::string location; // get set in chess_p constructor
     std::string destination; // get set in set_destination method
     bool is_white; // get set in chess_p constructor
-    bool is_alive; // is set to true in chess_p constructor
 
 public:
     // Public methods
@@ -52,14 +51,12 @@ public:
 
     // --- Getters --- //
 
-    bool get_is_alive(); // returns is_alive status
     bool get_is_white(); // returns is_white status
     std::string get_destination(); // returns destination location
 
     // --- Setters --- //
 
     void set_destination(std::string try_move); // try_move: proposed destination location
-    void set_die(); // turns is_alive from true to false 
 
     // --- Other Methods --- //
 

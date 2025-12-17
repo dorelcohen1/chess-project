@@ -17,6 +17,9 @@ int main()
     // rook
     test_rook();
 
+    //king
+    test_king();
+
     std::cin.get(); // this keeps the console window open until a key is pressed
     return 0;
 }
@@ -26,7 +29,7 @@ void test_rook()
     // rook
     rook test_rook("a1", true);
 
-    if(test_rook.give_location() == "a1" && test_rook.get_is_alive() == true && test_rook.get_is_white() == true)
+    if(test_rook.give_location() == "a1" && test_rook.get_is_white() == true)
     {
         std::cout << "Rook make tests passed." << std::endl;
     }
@@ -63,15 +66,6 @@ void test_rook()
     {
         std::cout << "Rook move execution failed." << std::endl;
     }
-    test_rook.set_die();
-    if(test_rook.get_is_alive() == false)
-    {
-        std::cout << "Rook set_die() test passed." << std::endl;
-    }
-    else
-    {
-        std::cout << "Rook set_die() test failed. \n\n\n" << std::endl;
-    }
     // end of tests for rook
 }
 void test_knight()
@@ -95,7 +89,7 @@ void test_king()
     // king
     king test_king("a1", true);
 
-    if(test_king.give_location() == "a1" && test_king.get_is_alive() == true && test_king.get_is_white() == true)
+    if(test_king.give_location() == "a1" && test_king.get_is_white() == true)
     {
         std::cout << "king make tests passed." << std::endl;
     }
@@ -131,15 +125,6 @@ void test_king()
     else
     {
         std::cout << "king move execution failed." << std::endl;
-    }
-    test_king.set_die();
-    if(test_king.get_is_alive() == false)
-    {
-        std::cout << "king set_die() test passed." << std::endl;
-    }
-    else
-    {
-        std::cout << "king set_die() test failed. \n\n\n" << std::endl;
     }
     // end of tests for king
 }

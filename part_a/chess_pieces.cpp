@@ -302,19 +302,19 @@ bool is_there_check(std::string state_of_board)
 						temp_piece = new rook(piece_location, !piece_is_white);
 						break;
 					case 'n':
-						temp_piece = new knight(piece_location, !piece_is_white);
+						//TODO temp_piece = new knight(piece_location, !piece_is_white);
 						break;
 					case 'b':
-						temp_piece = new bishop(piece_location, !piece_is_white);
+						//TODO temp_piece = new bishop(piece_location, !piece_is_white);
 						break;
 					case 'q':
-						temp_piece = new queen(piece_location, !piece_is_white);
+						//TODO temp_piece = new queen(piece_location, !piece_is_white);
 						break;
 					case 'k':
 						temp_piece = new king(piece_location, !piece_is_white);
 						break;
 					case 'p':
-						temp_piece = new pawn(piece_location, !piece_is_white);
+						//TODO temp_piece = new pawn(piece_location, !piece_is_white);
 						break;
 				}
 
