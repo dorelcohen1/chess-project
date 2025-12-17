@@ -28,7 +28,7 @@ rook::rook(const std::string& start_loc, bool is_it_white) : chess_p(start_loc, 
     * eficency:             O(n) - linear time complexity, where n is the number of squares checked for path clearance.
 ---------------------------------------------------------------------------------------
 */
-MoveResult rook::is_move_ok(std::string state_of_board, bool check_for_check = true)
+MoveResult rook::is_move_ok(std::string state_of_board, bool check_for_check)
 {
     /*
     Valid = 0,
@@ -363,7 +363,7 @@ bool is_there_check(std::string state_of_board)
     * eficency:             O(n) - linear time complexity, where n is the number of squares checked for path clearance.
 ---------------------------------------------------------------------------------------
 */
-MoveResult king::is_move_ok(std::string state_of_board, bool check_for_check = true)
+MoveResult king::is_move_ok(std::string state_of_board, bool check_for_check)
 {
     /*
     Valid = 0,
@@ -587,11 +587,16 @@ pawn::pawn(std::string start_loc, bool is_it_white) : chess_p(start_loc, is_it_w
     * efficiency:           O(1) - constant time complexity (knight moves are fixed patterns).
 ---------------------------------------------------------------------------------------
 */
-MoveResult knight::is_move_ok(std::string state_of_board, bool check_for_check = true)
+MoveResult knight::is_move_ok(std::string state_of_board, bool check_for_check)
 {
     // !just shit to avoid gcc warnings
     state_of_board[0] = state_of_board[2];
     check_for_check = false;
+    if (check_for_check)
+    {
+        return MoveResult::Valid;  // Stub for now
+    }
+    
     // TODO: Implement knight movement validation (L-shaped moves, can jump, etc.)
     return MoveResult::Valid;  // Stub for now
 }
@@ -608,11 +613,16 @@ MoveResult knight::is_move_ok(std::string state_of_board, bool check_for_check =
     * efficiency:           O(n) - linear time complexity, where n is the number of squares checked for path clearance.
 ---------------------------------------------------------------------------------------
 */
-MoveResult bishop::is_move_ok(std::string state_of_board, bool check_for_check = true)
+MoveResult bishop::is_move_ok(std::string state_of_board, bool check_for_check)
 {
     // !just shit to avoid gcc warnings
     state_of_board[0] = state_of_board[2];
     check_for_check = false;
+    if (check_for_check)
+    {
+        return MoveResult::Valid;  // Stub for now
+    }
+
     // TODO: Implement bishop movement validation (diagonal moves, path must be clear)
     return MoveResult::Valid;  // Stub for now
 }
@@ -629,11 +639,16 @@ MoveResult bishop::is_move_ok(std::string state_of_board, bool check_for_check =
     * efficiency:           O(n) - linear time complexity, where n is the number of squares checked for path clearance.
 ---------------------------------------------------------------------------------------
 */
-MoveResult queen::is_move_ok(std::string state_of_board, bool check_for_check = true)
+MoveResult queen::is_move_ok(std::string state_of_board, bool check_for_check)
 {
     // !just shit to avoid gcc warnings
     state_of_board[0] = state_of_board[2];
     check_for_check = false;
+    if (check_for_check)
+    {
+        return MoveResult::Valid;  // Stub for now
+    }
+
     // TODO: Implement queen movement validation (combines rook + bishop, path must be clear)
     return MoveResult::Valid;  // Stub for now
 }
@@ -650,11 +665,16 @@ MoveResult queen::is_move_ok(std::string state_of_board, bool check_for_check = 
     * efficiency:           O(1) - constant time complexity (pawn moves are limited).
 ---------------------------------------------------------------------------------------
 */
-MoveResult pawn::is_move_ok(std::string state_of_board, bool check_for_check = true)
+MoveResult pawn::is_move_ok(std::string state_of_board, bool check_for_check)
 {
     // !just shit to avoid gcc warnings
     state_of_board[0] = state_of_board[2];
     check_for_check = false;
+    if (check_for_check)
+    {
+        return MoveResult::Valid;  // Stub for now
+    }
+
     // TODO: Implement pawn movement validation (forward moves, captures, en passant, promotion)
     return MoveResult::Valid;  // Stub for now
 }
