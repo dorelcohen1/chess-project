@@ -35,7 +35,8 @@ public:
 
     // -- Constructor --//
     board(); // initializes the chess board with pieces in starting positions
-    
+	~board(); // destructor to clean up dynamically allocated memory
+	
     // --- getters --- //
 
     // --- setters --- //
