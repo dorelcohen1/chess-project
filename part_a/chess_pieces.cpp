@@ -373,7 +373,6 @@ MoveResult king::is_move_ok(std::string state_of_board )
     char turn = state_of_board[BOARD_STATE_LENGTH - 1];      // Extract whose turn it is from the board state
     int source_index = 0;                                    // Index of the source square on the board
     int dest_index = 0;                                      // Index of the destination square on the board
-    char king_char = '#';                                    // will have the type of king 
     std::string new_state_of_board = "";                     // new state of the board to test for Check
     bool king_exists = false;                                // Flag to check if opponent's king exists
     char opponent_king = '\0';                               // Opponent's king character
