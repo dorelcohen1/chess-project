@@ -157,7 +157,14 @@ MoveResult rook::is_move_ok(std::string state_of_board, bool check_for_check)
     new_state_of_board = state_of_board;
     new_state_of_board[dest_index] = new_state_of_board[source_index]; // Move piece to destination
     new_state_of_board[source_index] = EMPTY_SQUARE;                   // Empty the source square
-    new_state_of_board[BOARD_STATE_LENGTH - 1] = (turn == WHITE_TURN ? BLACK_TURN : WHITE_TURN); // change the turn                    
+    if (turn == WHITE_TURN)
+    {
+        new_state_of_board[BOARD_STATE_LENGTH - 1] = BLACK_TURN;
+    } 
+    else
+    {
+        new_state_of_board[BOARD_STATE_LENGTH - 1] = WHITE_TURN;
+    }      
     if (is_there_check(new_state_of_board))
     {
         return MoveResult::Invalid_SelfCheck;
@@ -169,7 +176,8 @@ MoveResult rook::is_move_ok(std::string state_of_board, bool check_for_check)
     // we can use the is_there_check function again
     new_state_of_board = state_of_board;
     new_state_of_board[dest_index] = new_state_of_board[source_index]; // Move piece to destination
-    new_state_of_board[source_index] = EMPTY_SQUARE;                   // Empty the source square
+    new_state_of_board[source_index] = EMPTY_SQUARE;                   // Empty the source square]
+    new_state_of_board[BOARD_STATE_LENGTH - 1] = turn;
     // Check if the move puts the opponent in check
     if (is_there_check(new_state_of_board))
     {
@@ -258,11 +266,16 @@ bool is_there_check(std::string state_of_board)
 		// white turn means we need to check for black king
 		king_char = 'k';
 	}
-	else
+	else if (current_turn == BLACK_TURN)
 	{
 		// black turn means we need to check for white king
 		king_char = 'K';
 	}
+    else
+    {
+        std::cout << "f you you shit!!!";
+        return true;
+    }
 
 	// find the location of the king on the board
 	for (i = 0; i < BOARD_SIZE; i++)
@@ -468,8 +481,14 @@ MoveResult king::is_move_ok(std::string state_of_board, bool check_for_check)
     new_state_of_board = state_of_board;
     new_state_of_board[dest_index] = new_state_of_board[source_index]; // Move piece to destination
     new_state_of_board[source_index] = EMPTY_SQUARE;                   // Empty the source square
-    new_state_of_board[BOARD_STATE_LENGTH - 1] = (turn == WHITE_TURN ? BLACK_TURN : WHITE_TURN); // change the turn
-
+    if (turn == WHITE_TURN)
+    {
+        new_state_of_board[BOARD_STATE_LENGTH - 1] = BLACK_TURN;
+    } 
+    else
+    {
+        new_state_of_board[BOARD_STATE_LENGTH - 1] = WHITE_TURN;
+    }   
     if (is_there_check(new_state_of_board))
     {
         result =  MoveResult::Invalid_SelfCheck;
@@ -479,6 +498,7 @@ MoveResult king::is_move_ok(std::string state_of_board, bool check_for_check)
     new_state_of_board = state_of_board;
     new_state_of_board[dest_index] = new_state_of_board[source_index]; // Move piece to destination
     new_state_of_board[source_index] = EMPTY_SQUARE;                   // Empty the source square
+    new_state_of_board[BOARD_STATE_LENGTH - 1] = turn;
     if(result == MoveResult::Valid)
     {
         // If all checks passed, the move is valid

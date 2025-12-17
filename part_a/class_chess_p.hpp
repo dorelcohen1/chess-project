@@ -24,7 +24,7 @@ constexpr int VERTICAL_STEP = 8;                         // Step size to move ve
 constexpr int HORIZONTAL_STEP = 1;                       // Step size to move horizontally (one file)
 constexpr int FILE_OFFSET = 0;                           // Index offset for file (column) in location string
 constexpr int RANK_OFFSET = 1;                           // Index offset for rank (row) in location string
-constexpr char BLACK_TURN = !WHITE_TURN;                 // if not white then black
+constexpr char BLACK_TURN = '1';                         // if not white then black
 /*
 // Class definition for chess pieces 
 // ------------------------------------------

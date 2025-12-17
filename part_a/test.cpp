@@ -199,6 +199,7 @@ void test_rook_and_king()
         board[0] = '#';    // a1
         board[56] = 'R';   // a8
         board.back() = '1'; // black to move
+        std::cout << "good\n";
     }
     else 
     {
@@ -227,6 +228,7 @@ void test_rook_and_king()
         board[60] = '#';  // e8
         board[59] = 'k';  // d8
         board.back() = '0'; // white to move
+        std::cout << "good\n";
     }    
     else 
     {
@@ -254,6 +256,7 @@ void test_rook_and_king()
         board[4] = '#';    // e1
         board[11] = 'K';   // d2
         board.back() = '1'; // black to move
+        std::cout << "good\n";
     }
     else 
     {
@@ -262,7 +265,7 @@ void test_rook_and_king()
         board[4] = '#';    // e1
         board[11] = 'K';   // d2
         board.back() = '1'; // black to move
-        std::cout << "\n" << "Black king e8 -> d8 didnt get: MoveResult::Invalid_SelfCheck it got:" << result <<"\n";;
+        std::cout << "White king e1 -> d2 didnt get: MoveResult::Valid_Check becouse the king is still in denger from the rook it got:" << result <<"\n";
     }
 
     std::cout << "Board after move 3:\n" << board << std::endl;
@@ -340,6 +343,16 @@ void test_rook_and_king()
 
         std::cout << "if you see this Valid_Checkmate is delayed by 1 or so rounds." << std::endl;
     }
+
+    std::string temp = w_rook.get_destination();
+    std::string temp2 = w_rook.give_location();
+
+    std::cout << temp << temp2 << std::endl;
+
+    temp = w_king.get_destination();
+    temp2 = w_king.give_location();
+
+    std::cout << temp << temp2 << std::endl;
 
     std::cout << "Final board:\n" << board << std::endl;
 
