@@ -41,6 +41,7 @@ public:
     // --- setters --- //
 
     // --- Other Methods --- //
+    bool kill(const std::string& position);
 
     // --- Virtual Methods --- //
 

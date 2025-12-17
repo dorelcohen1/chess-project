@@ -76,3 +76,18 @@ board::~board()
 	}
 }
 
+bool board::kill(const std::string& pos)
+{
+	int col = pos[0] - 'a';
+	int row = pos[1] - '1';
+
+
+	if (chess_board[row][col] != nullptr)
+	{
+		delete chess_board[row][col];
+		chess_board[row][col] = nullptr;
+		return true;
+	}
+
+	return false;
+}
