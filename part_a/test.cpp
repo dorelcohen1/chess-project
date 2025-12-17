@@ -209,7 +209,7 @@ void test_rook_and_king()
         board[0] = '#';    // a1
         board[56] = 'R';   // a8
         board.back() = '1'; // black to move
-        std::cout << "White rook a1 -> a8 didnt get  : MoveResult::Valid_Check it got:  " << result <<"\n";
+        std::cout << "White rook a1 -> a8 didnt get  : MoveResult::Valid_Check it got (1):  " << result <<"\n";
     }
 
     std::cout << "Board after move 1:\n" << board << std::endl;
