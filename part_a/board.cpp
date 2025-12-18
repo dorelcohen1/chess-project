@@ -5,11 +5,14 @@ board::board()
 {
     int i = 0;
     int j = 0;
+
     char file = '\0';
+
     std::string pos = "";
 
     state_of_board_as_string = STARTING_BOARD_STATE;
 
+    // set it all to null pointer
     for (i = 0; i < BOARD_SIZE_UP; ++i)
     {
         for (j = 0; j < BOARD_SIZE_RIGHT; ++j)
@@ -30,10 +33,12 @@ board::board()
     // White pawns at rank 2 (row 1)
     for (j = 0; j < BOARD_SIZE_RIGHT; ++j)
     {
+        // make the loc (pos) string 
         file = 'a' + j;
         pos = "";
         pos += file;
         pos += '2';
+
         chess_board[1][j] = new pawn(pos, true);  // White Pawns
     }
 
@@ -50,10 +55,12 @@ board::board()
     // Black pawns at rank 7 (row 6)
     for (j = 0; j < BOARD_SIZE_RIGHT; ++j)
     {
+        // make the loc (pos) string 
         file = 'a' + j;
         pos = "";
         pos += file;
         pos += '7';
+
         chess_board[6][j] = new pawn(pos, false);  // Black Pawns
     }
 }
@@ -65,11 +72,13 @@ board::~board()
 { 
 	int i = 0;
 	int j = 0;
+
 	for (i = 0; i < BOARD_SIZE_UP; ++i)
 	{
 		for (j = 0; j < BOARD_SIZE_RIGHT; ++j)
 		{
 			delete chess_board[i][j]; // Delete each piece if it exists
+
 			chess_board[i][j] = nullptr; // Set pointer to nullptr after deletion
 		}
 	}
@@ -85,7 +94,9 @@ bool board::kill(chess_p* p_chess)
 	if (chess_board[row][col] != nullptr)
 	{
 		delete chess_board[row][col];
+
 		chess_board[row][col] = nullptr;
+
 		return true;
 	}
 

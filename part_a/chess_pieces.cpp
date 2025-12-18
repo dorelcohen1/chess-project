@@ -67,6 +67,7 @@ MoveResult rook::is_move_ok(std::string state_of_board, bool check_for_check)
     // code number 2
     // Check if there is a piece at the source location
     source_index = (loc[RANK_OFFSET] - '1') * VERTICAL_STEP + (loc[FILE_OFFSET] - 'a');
+
     if (state_of_board[source_index] == EMPTY_SQUARE)
     {
         return MoveResult::Invalid_NoPieceAtSource;
@@ -75,10 +76,12 @@ MoveResult rook::is_move_ok(std::string state_of_board, bool check_for_check)
     // code number 3
     // Check if the destination is occupied by own piece
     dest_index = (dest[RANK_OFFSET] - '1') * VERTICAL_STEP + (dest[FILE_OFFSET] - 'a');
+
     if (state_of_board[dest_index] != EMPTY_SQUARE)
     {
         dest_piece = state_of_board[dest_index];
         dest_is_white = (dest_piece >= 'A' && dest_piece <= 'Z');
+
         if (dest_is_white == get_is_white())
         {
             return MoveResult::Invalid_DestinationOccupiedByOwnPiece;
@@ -106,27 +109,27 @@ MoveResult rook::is_move_ok(std::string state_of_board, bool check_for_check)
             // Determine step direction based on movement type
             if (loc[FILE_OFFSET] == dest[FILE_OFFSET])
             {
-            // Vertical movement: check if moving up or down
-            if (loc[RANK_OFFSET] < dest[RANK_OFFSET])
-            {
-                step = VERTICAL_STEP;  // Moving up
+                // Vertical movement: check if moving up or down
+                if (loc[RANK_OFFSET] < dest[RANK_OFFSET])
+                {
+                    step = VERTICAL_STEP;  // Moving up
+                }
+                else
+                {
+                    step = -VERTICAL_STEP; // Moving down
+                }
             }
             else
             {
-                step = -VERTICAL_STEP; // Moving down
-            }
-            }
-            else
-            {
-            // Horizontal movement: check if moving left or right
-            if (loc[FILE_OFFSET] < dest[FILE_OFFSET])
-            {
-                step = HORIZONTAL_STEP;  // Moving right
-            }
-            else
-            {
-                step = -HORIZONTAL_STEP; // Moving left
-            }
+                // Horizontal movement: check if moving left or right
+                if (loc[FILE_OFFSET] < dest[FILE_OFFSET])
+                {
+                    step = HORIZONTAL_STEP;  // Moving right
+                }
+                else
+                {
+                    step = -HORIZONTAL_STEP; // Moving left
+                }
             }
             
             for (i = start_index + step; i != end_index; i += step)
