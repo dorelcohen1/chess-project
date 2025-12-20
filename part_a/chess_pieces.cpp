@@ -662,7 +662,7 @@ MoveResult queen::is_move_ok(std::string state_of_board, bool check_for_check)
     } 
     if (state_of_board[dst] != EMPTY_SQUARE)
     {
-        bool dst_is_white = (state_of_board[ast] >= 'A' && state_of_board[dst] <= 'Z')
+        bool dst_is_white = (state_of_board[dst] >= 'A' && state_of_board[dst] <= 'Z');
         if (dst_is_white == get_is_white())
         {
             return MoveResult::Invalid_DestinationOccupiedByOwnPiece;
