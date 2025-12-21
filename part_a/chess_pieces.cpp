@@ -156,6 +156,9 @@ MoveResult rook::is_move_ok(std::string state_of_board, bool check_for_check)
         return MoveResult::Valid;
     }
 
+    // we are testing to see if we did Self Check so we will need 
+    // so we will act like the next turn is ours so it will ask if
+    // is the w king is in denger if turn is w
     // Check for self-check (DON'T switch turn)
     new_state_of_board = state_of_board;
     new_state_of_board[dest_index] = new_state_of_board[source_index];
@@ -168,6 +171,8 @@ MoveResult rook::is_move_ok(std::string state_of_board, bool check_for_check)
         return MoveResult::Invalid_SelfCheck;
     }
 
+    // now we see if we made the other be in denger so we tell them hi we are black so they see if black is in denger if we are w
+    // if the other king is in denger we got a Valid Check
     // Check if opponent is in check (DO switch turn)
     new_state_of_board = state_of_board;
     new_state_of_board[dest_index] = new_state_of_board[source_index];
@@ -246,6 +251,7 @@ king::king(const std::string& start_loc, bool is_it_white) : chess_p(start_loc, 
 */
 bool is_there_check(std::string state_of_board)
 {
+    // if we get turn a we see if in this given turn a king is in denger
     char current_turn = state_of_board[BOARD_STATE_LENGTH - 1];
     char king_char = '\0';
     std::string king_location = "";
