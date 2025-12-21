@@ -21,7 +21,7 @@ public:
     // Public methods
     // -- Constructor --//
 
-    rook(const std::string& start_loc, bool is_it_white);
+    rook(const std::string& start_loc, bool is_it_white ,std::string string_piece_representation);
 
     // --- Override Methods --- //
 

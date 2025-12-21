@@ -33,6 +33,8 @@ public:
     // Public methods
     //---------------//
 
+    void update_board_state_string();
+
     // -- Constructor --//
     board(); // initializes the chess board with pieces in starting positions
 	

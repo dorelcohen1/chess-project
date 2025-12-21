@@ -39,6 +39,7 @@ private:
     std::string location; // get set in chess_p constructor
     std::string destination; // get set in set_destination method
     bool is_white; // get set in chess_p constructor
+    std::string piece_representation; // char piece representation but string
 
 public:
     // Public methods
@@ -47,7 +48,7 @@ public:
 
     // -- Constructor --//
 
-    chess_p(std::string loc, bool is_it_white); // loc: initial location, color: true for white, false for black
+    chess_p(std::string loc, bool is_it_white ,std::string string_piece_representation); // loc: initial location, color: true for white, false for black
 
     // --- Getters --- //
 
