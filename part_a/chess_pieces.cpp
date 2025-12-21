@@ -654,6 +654,7 @@ MoveResult queen::is_move_ok(std::string state_of_board, bool check_for_check)
     // !just shit to avoid gcc warnings
     state_of_board[0] = state_of_board[2];
     check_for_check = false;
+    /*
     int dst = 0;
     std::string new_state = state_of_board;
     if (check_for_check)
@@ -673,7 +674,7 @@ MoveResult queen::is_move_ok(std::string state_of_board, bool check_for_check)
         }
         return MoveResult::Valid;
     }
-
+    */
     // TODO: Implement queen movement validation (combines rook + bishop, path must be clear)
     return MoveResult::Valid;  // Stub for now
 }
