@@ -15,6 +15,11 @@
 
 //? will it get if the rook goes to b8 or c8 instade? maby its with the index and string changes we have? 
 //-note-> see if 64 - [8 -> 7(problem becouse index from 0)] gets the less line to be only {b8 <--to--> h8} or mabye {B8 <--to--> G8}
+//? see is_there_check logic for errors? 
+//? it may be in it or in the const's?
+//? see index in king and rook is move ok and test it 
+//? test all line cases on the board all of [A][something] and [something][1] and [something][8] and [H][something]
+//-note-> go over all index makeing and const's and chack logic!!!
 
 /*
 //+ test out +//////////////////////////////////////////////////////////////////////////////////////////////
