@@ -102,29 +102,3 @@ bool board::kill(chess_p* p_chess)
 
 	return false;
 }
-
-void board::update_board_state_string()
-{
-	// Reset the board state string
-	state_of_board_as_string = "";
-
-	for (int i = 0; i < BOARD_SIZE_UP; ++i)
-	{
-		for (int j = 0; j < BOARD_SIZE_RIGHT; ++j)
-		{
-			if (chess_board[i][j] != nullptr)
-			{
-				// Append the piece representation to the board state string
-				state_of_board_as_string += chess_board[i][j]->get_piece_representation();
-			}
-			else
-			{
-				// Append empty square character
-				state_of_board_as_string += EMPTY_SQUARE;
-			}
-		}
-	}
-
-	// Append turn information at the end
-	state_of_board_as_string += turn_info_frontend_format;
-}

@@ -26,14 +26,9 @@ private:
     // !this will hold the code we need to send to the frontend after trying to make a move
     MoveResult move_result; // holds the result of the last move attempt 
 
-    // !will hold the turn information in frontend format its important and carries all the needed info about the turn and is sent to pieces as state_of_board 
-    std::string turn_info_frontend_format; // holds the turn information in frontend format
-
 public:
     // Public methods
     //---------------//
-
-    void update_board_state_string();
 
     // -- Constructor --//
     board(); // initializes the chess board with pieces in starting positions
