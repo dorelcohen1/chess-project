@@ -66,7 +66,7 @@ MoveResult rook::is_move_ok(std::string state_of_board, bool check_for_check)
 
     // code number 2
     // Check if there is a piece at the source location
-    source_index = (loc[RANK_OFFSET] - '1') * VERTICAL_STEP + (loc[FILE_OFFSET] - 'a');
+    source_index = (loc[RANK_OFFSET] - '1') * VERTICAL_STEP + (loc[FILE_OFFSET] - 'a'); //-note-> working culc
 
     if (state_of_board[source_index] == EMPTY_SQUARE)
     {
@@ -660,6 +660,11 @@ MoveResult queen::is_move_ok(std::string state_of_board, bool check_for_check)
     // !just shit to avoid gcc warnings
     state_of_board[0] = state_of_board[2];
     check_for_check = false;
+    if (check_for_check)
+    {
+        check_for_check = true;
+    }
+    
     /*
     int dst = 0;
     std::string new_state = state_of_board;

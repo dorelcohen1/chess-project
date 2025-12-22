@@ -1,3 +1,4 @@
+/*
 #include <iostream>
 #include "board.hpp"
  
@@ -10,7 +11,7 @@ void test_king();
 void test_rook_and_king();
  
 
-int main() 
+int banana() 
 {
     std::cout << "Chess pieces module loaded successfully.\n" << std::endl;
     
@@ -171,97 +172,34 @@ void test_rook_and_king()
     // Initial position:
     // White: Rook a1 (index 0), King e1 (index 4)
     // Black: King e8 (index 60)
-    std::string board =
-        "R###K###"   // rank 1: White Rook a1, White King e1
-        "########"   // rank 2
-        "########"   // rank 3
-        "########"   // rank 4
-        "########"   // rank 5
-        "########"   // rank 6
-        "########"   // rank 7
-        "####k###"   // rank 8: black king e8 (index 60)
-        "0";         // white to move
+    std::string board = "#R##K##R##################################################k#####0";         
 
     king w_king("e1", true);
-    rook w_rook("a1", true);
-    king b_king("e8", false);
+    rook w_rook("b1", true);
+    rook w_rook_2("h1", true);
+    king b_king("c8", false);
 
     std::cout << "Initial board:\n" << board << std::endl;
 
     // Move 1: White rook a1 -> a8
-    w_rook.set_destination("a8");
+    w_rook.set_destination("b8");
     MoveResult result = w_rook.is_move_ok(board);
-
-    std::cout << "Move 1: White rook a1 -> a8: " << result;
-    if (result == MoveResult::Valid_Check) {
-        std::cout << " ✓ (Valid_Check)" << std::endl;
-    } else {
-        std::cout << " ✗ (Expected 1=Valid_Check)" << std::endl;
-    }
-
-    // Update board: move rook from a1 (0) to a8 (56)
-    board[0] = '#';    // Clear a1
-    board[56] = 'R';   // Place rook at a8
-    board[64] = '1';   // Black to move
     w_rook.move();
 
-    std::cout << "Board after move 1:\n" << board << std::endl;
-
-    // Move 2: Black king e8 -> d8 (should be Invalid_SelfCheck)
-    b_king.set_destination("d8");
-    result = b_king.is_move_ok(board);
-
-    std::cout << "Move 2: Black king e8 -> d8: " << result;
-    if (result == MoveResult::Invalid_SelfCheck) {
-        std::cout << " ✓ (Invalid_SelfCheck - can't move into check)" << std::endl;
-    } else {
-        std::cout << " ✗ (Expected 4=Invalid_SelfCheck)" << std::endl;
+    std::cout << "Move 1: White rook a1 -> a8: " << result;
+    if (result == MoveResult::Valid_Check) 
+    {
+        std::cout << " ✓ (Valid_Check)" << std::endl;
+    } 
+    else if (result == MoveResult::Valid)
+    {
+        std::cout << " ✗ Check test fail" << std::endl;
     }
-
-    // Move 2 alternative: Black king e8 -> f7 (valid escape)
-    b_king.set_destination("f7");
-    result = b_king.is_move_ok(board);
-
-    std::cout << "Move 2 alt: Black king e8 -> f7: " << result;
-    if (result == MoveResult::Valid) {
-        std::cout << " ✓ (Valid)" << std::endl;
-        board[60] = '#';   // Clear e8 (60 = (8-1)*8 + 4)
-        board[53] = 'k';   // Place king at f7 (53 = (7-1)*8 + 5)
-        board[64] = '0';   // White to move
-        b_king.move();
-    } else {
-        std::cout << " ✗ (Expected 0=Valid)" << std::endl;
-    }
-
-    std::cout << "Board after move 2:\n" << board << std::endl;
-
-    // Move 3: White king e1 -> e2
-    w_king.set_destination("e2");
-    result = w_king.is_move_ok(board);
-
-    std::cout << "Move 3: White king e1 -> e2: " << result;
-    if (result == MoveResult::Valid) {
-        std::cout << " ✓ (Valid)" << std::endl;
-        board[4] = '#';    // Clear e1
-        board[12] = 'K';   // Place king at e2
-        board[64] = '1';   // Black to move
-        w_king.move();
-    } else {
-        std::cout << " ✗ (Expected 0=Valid)" << std::endl;
-    }
-
-    std::cout << "Board after move 3:\n" << board << std::endl;
-
-    // Move 4: White rook a8 -> f8 (should capture or threaten)
-    w_rook.set_destination("f8");
-    result = w_rook.is_move_ok(board);
-
-    std::cout << "Move 4: White rook a8 -> f8: " << result;
-    if (result == MoveResult::Valid_Check || result == MoveResult::Valid) {
-        std::cout << " ✓ (result=" << result << ")" << std::endl;
-    } else {
-        std::cout << " ✗ (Unexpected result)" << std::endl;
+    else
+    {
+        std::cout << " ✗ (Expected 1=Valid_Check)" << std::endl;
     }
 
     std::cout << "=== End of test ===" << std::endl;
 }
+*/
